@@ -44,7 +44,6 @@ const MyCardsPage = () => {
           (card) => card.user_id === userId
         );
 
-        // Set the initial like status based on local storage
         const cardsWithLikeStatus = userCards.map((card) => ({
           ...card,
           like: localStorage.getItem(`like_${card._id}`) === "true",
