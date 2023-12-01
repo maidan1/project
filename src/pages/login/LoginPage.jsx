@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { authActions } from "../../store/authSlice";
 import CopyrightComponent from "./ui/CopyrightComponent";
 import ROUTES from "../../routes/ROUTES";
 import { validateLogin } from "../../validation/loginValidation";
@@ -74,9 +75,11 @@ const LoginPage = () => {
         console.log("Navigating to HOME...");
         navigate(ROUTES.HOME);
         setTimeout(() => {
-
+          console.log("Refreshing the page...");
+          window.location.reload();
         }, 500);
       } else {
+        console.log("User is offline. Not refreshing the page.");
         navigate(ROUTES.HOME);
       }
     } catch (err) {
@@ -184,14 +187,6 @@ const LoginPage = () => {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs></Grid>
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
             <CopyrightComponent sx={{ mt: 5 }} />
           </Box>
         </Box>
