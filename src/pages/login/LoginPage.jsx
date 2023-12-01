@@ -74,11 +74,9 @@ const LoginPage = () => {
         console.log("Navigating to HOME...");
         navigate(ROUTES.HOME);
         setTimeout(() => {
-          console.log("Refreshing the page...");
-          window.location.reload();
+
         }, 500);
       } else {
-        console.log("User is offline. Not refreshing the page.");
         navigate(ROUTES.HOME);
       }
     } catch (err) {
